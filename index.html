@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b5f50">
+  <title>Madurai CityBus Live | Bus Tracking</title>
+  <link rel="icon" href="assets/bus.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Madurai CityBus home">
+      <span class="brand-icon">▰</span>
+      <span><strong>Madurai CityBus</strong><small>LIVE TRANSIT</small></span>
+    </a>
+    <div class="live-pill"><span class="pulse"></span> LIVE DEMO</div>
+  </header>
+
+  <main class="app-shell">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">MADURAI • TAMIL NADU</p>
+        <h1>Your bus. <span>Your time.</span></h1>
+        <p class="subhead">Explore city routes, follow buses on the map, and check estimated arrivals at a glance.</p>
+      </div>
+      <div class="service-card"><span class="service-dot"></span><div><strong>Service overview</strong><small id="serviceStatus">Demo service running</small></div></div>
+    </section>
+
+    <section class="dashboard">
+      <aside class="sidebar">
+        <div class="search-wrap">
+          <label for="searchInput">Find a bus, route or stop</label>
+          <div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Try Periyar, Mattuthavani…" autocomplete="off"><button id="clearSearch" aria-label="Clear search">×</button></div>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><span class="stat-icon">🚌</span><div><strong id="busCount">6</strong><small>Buses on map</small></div></div>
+          <div class="stat"><span class="stat-icon">⌖</span><div><strong id="stopCount">12</strong><small>Stops listed</small></div></div>
+        </div>
+
+        <div class="section-heading"><div><h2>Routes</h2><p>Choose a route to view its buses</p></div><button id="showAll" class="text-button">Show all</button></div>
+        <div id="routeList" class="route-list"></div>
+
+        <div class="section-heading stops-heading"><div><h2>Nearby stops</h2><p>Sample stop locations</p></div></div>
+        <div id="stopList" class="stop-list"></div>
+        <p class="data-note"><span>ⓘ</span> Demo data only. Bus locations and ETAs are simulated, not official live GPS data.</p>
+      </aside>
+
+      <section class="map-panel" aria-label="Bus map and arrival details">
+        <div class="map-toolbar">
+          <div><strong id="mapTitle">Madurai bus network</strong><small id="mapSubtitle">Select a route or bus to explore</small></div>
+          <button id="locateButton" class="locate-button"><span>◎</span> City centre</button>
+        </div>
+        <div id="map" role="application" aria-label="Interactive map of Madurai"></div>
+        <div class="map-legend"><span><i class="legend-bus"></i> Demo bus</span><span><i class="legend-stop"></i> Bus stop</span><span><i class="legend-route"></i> Route path</span></div>
+        <div class="bottom-panel">
+          <div class="arrival-title"><div><p class="eyebrow">ARRIVAL BOARD</p><h2 id="arrivalHeading">Buses approaching Periyar</h2></div><span class="updated"><span class="pulse"></span> Updating demo</span></div>
+          <div id="arrivalList" class="arrival-list"></div>
+        </div>
+      </section>
+    </section>
+    <footer><span>Madurai CityBus Live</span><span>Independent prototype • Not affiliated with a transport authority</span></footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>
